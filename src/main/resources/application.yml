@@ -1,0 +1,40 @@
+server:
+    port: 9000
+    
+# spring cloud config repo settings.
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/adithyamr/personal-investment-tracker-config-server.git
+          clone-on-start: true
+          force-pull: true
+          private-key: 
+          search-paths:
+            src/main/resources/config/user-api-config,
+            src/main/resources/config/mail-api-config,
+            src/main/resources/config/stock-api-config,
+            src/main/resources/config/mutual-fund-api-config,
+            src/main/resources/config/nps-api-config,
+            src/main/resources/config/fixed-income-api-config,
+            src/main/resources/config/commodity-api-config
+          username: aadityamr@gmail.com
+          repos:
+            dev:
+              pattern: 
+                - '*/dev'
+            uat:
+              pattern: 
+                - '*/uat'
+            prd:
+              pattern: 
+                - '*/prd'
+            local:
+              pattern:
+                - '*/local'
+
+#Disable security of the Management endpoint
+management:
+  security:
+     enabled: false
