@@ -6,10 +6,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @EnableConfigServer
 @SpringBootApplication
-public class PersonalInvestmentTrackerConfigServerApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PersonalInvestmentTrackerConfigServerApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

@@ -1,6 +1,0 @@
-server:
-  port: 9007
-
-spring:
-    application:
-        name: user-api
