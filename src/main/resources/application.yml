@@ -1,30 +1,16 @@
 server:
-    port: 9000
-    
-# spring cloud config repo settings.
+  port: 9000
+  
 spring:
-  profiles:
-    active:
-    - native
   cloud:
     config:
       server:
-        bootstrap: true
         git:
-          uri: https://github.com/adithyamr/personal-investment-tracker-config
+          uri: https://github.com/adithyamr/personal-investment-tracker-config.git
+          default-label: main
           clone-on-start: true
           force-pull: true
-          default-label: main
-          search-paths: 
-           - user-api
-           - mail-api
-           - stock-api
-           - mutual-fund-api
-           - nps-api
-           - fixed-income-api
-           - commodity-api
-
-#Disable security of the Management endpoint
-management:
-  security:
-     enabled: false
+          search-paths:
+          - '*api'
+        encrypt:
+          enabled: false
