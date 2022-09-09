@@ -26,4 +26,5 @@ hs_err_pid*
 .settings
 target
 /bin/
+/.DS_Store/
 /.DS_Store
