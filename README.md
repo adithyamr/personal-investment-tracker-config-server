@@ -3,14 +3,14 @@ personal-investment-tracker-config-server
 
 mvn spring-boot:build-image
 docker network create personal-investment-tracker                                                                                                 
-docker run --network personal-investment-tracker --name config_server -d -p 9000:9000 -it personal-investment-tracker-config-server:0.0.1-SNAPSHOT 
+docker run --network personal-investment-tracker --name config-server -d -p 9000:9000 -it personal-investment-tracker-config-server:0.0.1-SNAPSHOT 
 
 
 ssh-keyscan -t ecdsa github.com  ==> hostkey
 ssh-keygen -m PEM -t ecdsa -b 256 ==> generate private and public key
 
 
-docker run -p 5432:5432 -d --network personal-investment-tracker --name postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=Admin@123 
+docker run -p 5432:5432 -d --network personal-investment-tracker --name postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=Admin@123 -e PGDATA=/var/lib/postgresql/data/pgdata -v $PWD/DockerVolume/postgres:/var/lib/postgresql/data postgres
 CREATE DATABASE pit OWNER admin;
 
 create table PROPERTIES (
